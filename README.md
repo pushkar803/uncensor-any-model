@@ -43,13 +43,11 @@ Steered prompts come from the public AdvBench CSV. Ordinary prompts come from `t
 
 ## Result
 
-The Qwen 2.5 3B run is saved as a private model:
+The Qwen 2.5 3B run is public:
 
 https://huggingface.co/pushkar9867/Qwen2.5-3B-Instruct-edited
 
 That repo contains `model.safetensors`, `config.json`, the tokenizer files, and `chat_template.jinja`.
-
-Load it with the same libraries you would use for the base model:
 
 ```python
 from transformers import AutoModelForCausalLM, AutoTokenizer
@@ -59,7 +57,7 @@ tokenizer = AutoTokenizer.from_pretrained(repo)
 model = AutoModelForCausalLM.from_pretrained(repo, device_map="auto")
 ```
 
-The repo is private, so the machine that loads it needs a Hugging Face token with access.
+New uploads from the notebook still follow `keep_private`. It defaults to `True`, so set it to `False` if the next run should be public too.
 
 ## Local secrets
 
